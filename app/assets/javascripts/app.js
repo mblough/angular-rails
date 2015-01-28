@@ -5,6 +5,11 @@ angular.module('angularRails', ['ui.router', 'templates'])
 			url: '/home',
 			templateUrl: 'home/_home.html',
 			controller: 'MainCtrl'
+			resolve: {
+				postPromise: ['posts', function(posts) {
+					return posts.getAll();
+				}]
+			}
 		})
 		.state('posts', {
 			url: '/posts/{id}',
