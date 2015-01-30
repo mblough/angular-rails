@@ -1,6 +1,6 @@
 angular.module('angularRails')
-.controller('PostsCtrl', ['$scope', '$stateParams', 'posts', function($scope, $stateParams, posts) {
-	$scope.post = posts.posts[$stateParams.id];
+.controller('PostsCtrl', ['$scope', '$stateParams', 'posts', 'post', function($scope, $stateParams, posts, post) {
+	$scope.post = post;
 
 	// Add a comment to a post
 	$scope.addComment = function(){
