@@ -27,5 +27,15 @@ angular.module('angularRails')
 			return res.data;
 		});
 	};
+
+	o.addComment = function(id, comment) {
+		return $http.post('/posts/' + id + '/comments.json', comment);
+	};
 	return o;
+
+	o.upvoteComment = function(post, comment) {
+		return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote.json').success(function(data) {
+			comment.upvotes += 1;
+		});
+	};
 }]);

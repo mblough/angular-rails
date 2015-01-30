@@ -5,16 +5,17 @@ angular.module('angularRails')
 	// Add a comment to a post
 	$scope.addComment = function(){
 		if($scope.body === '') { return; }
-		$scope.post.comments.push({
+		posts.addComment(post.id, {
 			body: $scope.body,
-			author: 'user',
-			upvotes: 0
+			author: 'user'
+		}).success(function(comment) {
+			$scope.post.comments.push(comment);
 		});
 		$scope.body = '';
 	};
 
 	// Increment the upvote counter
 	$scope.incrementUpvotes = function(comment) {
-		comment.upvotes += 1;
+		posts.upvoteComment(post, comment);
 	};
 }]);
