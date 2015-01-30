@@ -35,7 +35,7 @@ angular.module('angularRails', ['ui.router', 'templates', 'Devise'])
 			url: '/register',
 			templateUrl: 'auth/_register.html',
 			controller: 'AuthCtrl',
-			onEnter: ['$state', 'Auth', function() {
+			onEnter: ['$state', 'Auth', function($state, Auth) {
 				Auth.currentUser().then(function() {
 					$state.go('home');
 				})
