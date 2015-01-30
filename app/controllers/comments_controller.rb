@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 	before_filter :authenticate_user!, only: [:create, :upvote]
-	
+
 	def create
 		post = Post.find(params[:post_id])
-		comment = post.comments.create(comment_params)
+		comment = post.comments.create(comment_params.merge(user_id: current_user.id))
 		respond_with post, comment
 	end
 
@@ -13,6 +13,10 @@ class CommentsController < ApplicationController
 		comment.increment!(:upvotes)
 
 		respond_with post, comment
+	end
+
+	def as_json(options = {})
+		super(options.merge(include: :user))
 	end
 
 	private
