@@ -1,4 +1,4 @@
-angular.module('angularRails', ['ui.router', 'templates'])
+angular.module('angularRails', ['ui.router', 'templates', 'Devise'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('home', {
