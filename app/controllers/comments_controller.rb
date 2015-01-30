@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 	end
 
 	def upvote
-		post = Post.find(param[:id])
+		post = Post.find(params[:post_id])
 		comment = post.comments.find(params[:id])
 		comment.increment!(:upvotes)
 

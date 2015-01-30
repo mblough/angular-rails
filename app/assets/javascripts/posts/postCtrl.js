@@ -15,7 +15,7 @@ angular.module('angularRails')
 	};
 
 	// Increment the upvote counter
-	$scope.incrementUpvotes = function(comment) {
+	$scope.incrementCommentUpvotes = function(comment) {
 		posts.upvoteComment(post, comment);
 	};
 }]);
