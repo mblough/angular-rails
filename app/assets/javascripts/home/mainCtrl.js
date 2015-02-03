@@ -6,7 +6,8 @@ angular.module('angularRails')
 		if(!$scope.title || $scope.title === '') { return; }
 		posts.create({
 			title: $scope.title,
-			link: $scope.link
+			link: $scope.link,
+			upvotes: 0
 		});
 		$scope.title = '';
 		$scope.link = '';
